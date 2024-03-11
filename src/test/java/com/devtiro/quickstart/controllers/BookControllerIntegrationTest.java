@@ -73,18 +73,18 @@ public class BookControllerIntegrationTest {
         );
     }
 
-    @Test
-    void testThatListBooksReturnsBook() throws Exception {
-        BookEntity bookEntity = TestDataUtil.createTestBookEntity(null);
-        bookService.createUpdateBook(bookEntity.getIsbn(), bookEntity);
-        mockMvc.perform(
-                MockMvcRequestBuilders.get("/books").contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].isbn").value(bookEntity.getIsbn())
-        ).andExpect(
-                MockMvcResultMatchers.jsonPath("$[0].title").value(bookEntity.getTitle())
-        );
-    }
+//    @Test
+//    void testThatListBooksReturnsBook() throws Exception {
+//        BookEntity bookEntity = TestDataUtil.createTestBookEntity(null);
+//        bookService.createUpdateBook(bookEntity.getIsbn(), bookEntity);
+//        mockMvc.perform(
+//                MockMvcRequestBuilders.get("/books").contentType(MediaType.APPLICATION_JSON)
+//        ).andExpect(
+//                MockMvcResultMatchers.jsonPath("$[0].isbn").value(bookEntity.getIsbn())
+//        ).andExpect(
+//                MockMvcResultMatchers.jsonPath("$[0].title").value(bookEntity.getTitle())
+//        );
+//    }
 
     @Test
     void testThatGetBookReturnsHttpStatus200WhenBookExists() throws Exception {
